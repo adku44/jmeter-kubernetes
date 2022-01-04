@@ -1,10 +1,10 @@
 
-install WSL:
+# install WSL:
 Windows Subsystem for Linux
 https://docs.microsoft.com/en-us/windows/wsl/install
 Ubuntu 20.4 LTS
 
-Run WSL terminal
+# Run WSL terminal
 
 Install AWS CLI
 configure access to aws:

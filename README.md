@@ -1,6 +1,9 @@
-# jmeter-kubernetes
+## jmeter-kubernetes
 Load Test as a service (LTaaS)
 
 This service can be run in kubernetes environment.
 
-Detailed decsription how to setup kubernetes environment in AWS can be found in [Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/instruction-manual.md)
+##
+Detailed description how to begin with initial AWS setup and install necessary tools to be able to start adventure with kubernetes can be found in [Initial Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/initial-instruction-manual.md)
+
+Basic information how use kubernetes and adjust kubernetes environment for LTaaS can be found in [k8s Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/k8s-instruction-manual.md). Also description of handling Load Test applicaton is covered by this manual. 

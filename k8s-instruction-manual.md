@@ -1,8 +1,17 @@
 
-This manual covers information about basic kubernetes environment which can be used to run Load Test service (LTaaS).
-Kubernetes environment is setup in AWS (Amazon Web Servises) with EKSCTL tool.
+This manual covers basic kubernetes commands to handle POD configuration, patching deployments files (.yaml) 
+and handle LTaaS application.
 
-## install WSL:
+## Start/stop kubernetes cluster
+```
+eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small
+eksctl delete cluster --name=LTaas --region=eu-north-1
+```
+> About 20 minutes takes buliding k8s cluster with EKSCTL tool 
+> *About 20 minutes takes buliding k8s cluster with EKSCTL tool* 
+*About 20 minutes takes buliding k8s cluster with EKSCTL tool*
+
+## Basic Commands
 Windows Subsystem for Linux
 Please follow the instructions for installation in microsoft manual
 ```

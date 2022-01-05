@@ -4,6 +4,7 @@ Kubernetes environment is setup in AWS (Amazon Web Servises) with EKSCTL tool.
 
 ## install WSL:
 Windows Subsystem for Linux
+Please follow the instructions for installation in microsoft manual
 ```
 https://docs.microsoft.com/en-us/windows/wsl/install
 ```
@@ -12,10 +13,10 @@ e.g. Ubuntu 20.4 LTS
 ## Run WSL terminal
 In Windows
 ```
-WinKey + R
+press Windows logo key + R
 type wsl
 ```
-When WSL terminal is opened type ```cd```
+When WSL terminal is opened type `cd`
 to change to home directory
 
 
@@ -66,6 +67,6 @@ Enter the following details accordingly:
 - Default region name [aws region e.g. eu-north-1]
 - Default output format [JSON format is fine]
 
-Check configuration ```aws iam get-user```
+Check configuration `aws iam get-user`
 
 

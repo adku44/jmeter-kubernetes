@@ -87,4 +87,4 @@ kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4
 kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4 --force
 ```
 
-Killed pod will be removed and in place of it a new one pod will be created automatically accordingly to deployment file.
+Killed pod will be removed and in place of it a new one will be created automatically accordingly to deployment file.

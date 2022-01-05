@@ -15,7 +15,7 @@ In Windows
 WinKey + R
 type wsl
 ```
-Whem WSL terminal is opened type ```cd
+When WSL terminal is opened type ```cd```
 to change to home directory
 
 
@@ -58,7 +58,7 @@ configure access to aws from your PC
 
 - create aws user inside aws 
 - copy user name (IAM user's Access key) and access key (IAM user's secret key)
-- run in wsl terminal ```aws configure
+- run in wsl terminal `aws configure`
 
 Enter the following details accordingly:
 - AWS Access Key ID [IAM user's Access key]
@@ -66,6 +66,6 @@ Enter the following details accordingly:
 - Default region name [aws region e.g. eu-north-1]
 - Default output format [JSON format is fine]
 
-Check configuration ``` aws iam get-user
+Check configuration ```aws iam get-user```
 
 

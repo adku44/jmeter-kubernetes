@@ -1,6 +1,6 @@
 
 This manual covers basic kubernetes commands to handle POD configuration, patching deployments files (.yaml) 
-and handle LTaaS application.
+and handle Load Test application.
 
 ## Start/stop kubernetes cluster
 `eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small`
@@ -26,39 +26,38 @@ Remove namespace
 kubectl delete namespace load-test
 ```
 
-Kill POD (e.g.)
-```
-kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4
-kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4 --force
-```
-
 Connect to POD (e.g.)
 ```
 kubectl exec -it -n load-test jmeter-grafana-6cdb4c7cf8-dpckm  -- /bin/sh
 ```
+
 Exposure grafana service
 ```
 kubectl get svc jmeter-grafana -n load-test
 kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "LoadBalancer"}}'
 ```
+
 Remove Load Balancer
 ```
 kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "NodePort"}}'
 ```
+
 Increase number of slaves
 ```
 kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 3}}'
 ```
 
-## Deployment of LTaaS app
+## Deployment of Load Test app
 Start deployment of all necessary pods
 ```
 ./deploy-load-test-app.sh
 ```
+
 Wait untill all pods are running. Check it with command
 ```
 kubectl get -n load-test all
 ```
+
 When all pods are running then perform configuration setup
 ```
 ./configure-pods.sh
@@ -78,3 +77,14 @@ In case if you want to break test during an execution then stop command must be 
 ./stop-test.sh
 ```
 ## Troubleshooting
+Sometimes can happen that slave pods are busy and new tests are not possible to run. Such situation can occurs 
+in case of huge nubmers of response errors or improprate closing test scenario by script ```stop-test.sh.
+When such situation happen then slaves must be killed manually by command with apropiate slave name.
+
+Kill POD (e.g.)
+```
+kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4
+kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4 --force
+```
+
+Killed pod will be removed and in place of it a new one pod will be created automatically accordingly to deployment file.

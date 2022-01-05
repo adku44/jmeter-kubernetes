@@ -3,79 +3,40 @@ This manual covers basic kubernetes commands to handle POD configuration, patchi
 and handle LTaaS application.
 
 ## Start/stop kubernetes cluster
-```
-eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small
-eksctl delete cluster --name=LTaas --region=eu-north-1
-```
-> About 20 minutes takes buliding k8s cluster with EKSCTL tool 
+`eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small`
+
+`eksctl delete cluster --name=LTaas --region=eu-north-1`
+
 > *About 20 minutes takes buliding k8s cluster with EKSCTL tool* 
-*About 20 minutes takes buliding k8s cluster with EKSCTL tool*
 
 ## Basic Commands
-Windows Subsystem for Linux
-Please follow the instructions for installation in microsoft manual
+Check namespaces and PODs
 ```
-https://docs.microsoft.com/en-us/windows/wsl/install
+kubectl get namespace
+kubectl get po -n load-test
+kubectl get po -n load-test | grep jmeter-master | awk '{print $1}'
 ```
-e.g. Ubuntu 20.4 LTS
+Remove namespace
+`kubectl delete namespace load-test`
 
-## Run WSL terminal
-In Windows
+Kill POD (e.g.)
+`kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4`
+`kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4 --force`
+
+Connect to POD (e.g.)
+`kubectl exec -it -n load-test jmeter-grafana-6cdb4c7cf8-dpckm  -- /bin/sh`
+
+Exposure grafana service
 ```
-press Windows logo key + R
-type wsl
+kubectl get svc jmeter-grafana -n load-test
+kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "LoadBalancer"}}'
 ```
-When WSL terminal is opened type `cd`
-to change to home directory
+Remove Load Balancer
+`kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "NodePort"}}'`
 
+Increase number of slaves
+`kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 3}}'`
 
-## Install AWS CLI
-AWS-CLI installer for Linux x86
-```
-sudo apt install unzip
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-aws --version
-```
+## Deploymet of LTaaS app
 
-## Install EKSCTL
-```
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-sudo mv /tmp/eksctl /usr/local/bin
-eksctl version
-```
-
-## Install KUBECTL
-```
-sudo curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-mkdir -p $HOME/bin && mv ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
-echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
-kubectl version --short --client
-```
-
-## Install aws-iam-authenticator
-```
-curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
-chmod +x ./aws-iam-authenticator
-mkdir -p $HOME/bin && mv ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
-aws-iam-authenticator version
-```
-
-## Configure AWS CLI
-configure access to aws from your PC
-
-- create aws user inside aws 
-- copy user name (IAM user's Access key) and access key (IAM user's secret key)
-- run in wsl terminal `aws configure`
-
-Enter the following details accordingly:
-- AWS Access Key ID [IAM user's Access key]
-- AWS Secret Access Key [IAM user's secret key]
-- Default region name [aws region e.g. eu-north-1]
-- Default output format [JSON format is fine]
-
-Check configuration `aws iam get-user`
-
-
+## Troubleshooting

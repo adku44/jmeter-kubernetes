@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: influxdb-config
   labels:
-    app: influxdb-jmeter
+    app: influxdb
 data:
   influxdb.conf: |
     [meta]
@@ -13,9 +13,3 @@ data:
       dir = "/var/lib/influxdb/data"
       engine = "tsm1"
       wal-dir = "/var/lib/influxdb/wal"
-
-    # Configure the graphite api
-    [[graphite]]
-    enabled = true
-    bind-address = ":2003" # If not set, is actually set to bind-address.
-    database = "jmeter"  # store graphite data in this database

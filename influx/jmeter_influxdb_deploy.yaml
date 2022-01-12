@@ -24,7 +24,7 @@ spec:
                 command:
                   - /bin/sh
                   - "-c"
-                  - influx -execute 'CREATE DATABASE jmeter'
+                  - until curl -s http://localhost:8086/ping; do sleep 1; done; influx -execute 'CREATE DATABASE jmeter'
           volumeMounts:
           - name: config-volume
             mountPath: /etc/influxdb

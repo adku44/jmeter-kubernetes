@@ -18,6 +18,13 @@ spec:
         - image: influxdb:1.8.4
           imagePullPolicy: IfNotPresent
           name: influxdb
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - "-c"
+                  - influx -execute 'CREATE DATABASE jmeter'
           volumeMounts:
           - name: config-volume
             mountPath: /etc/influxdb

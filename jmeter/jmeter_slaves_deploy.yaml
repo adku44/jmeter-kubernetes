@@ -22,9 +22,9 @@ spec:
         args: 
         - > 
           /jmeter/apache-jmeter-5.0/bin/jmeter-server 
-            -Dserver.rmi.localport=50000
-            -Dserver_port=1099
-            -Jserver.rmi.ssl.disable=true
+          -Dserver.rmi.localport=50000
+          -Dserver_port=1099
+          -Jserver.rmi.ssl.disable=true
         ports:
         - containerPort: 1099
         - containerPort: 50000

@@ -20,5 +20,5 @@ Killed pod will be removed and in place of it a new one will be created automati
 Kubernetes cluster shall be deleted by EKSCTL tool. But before 'Load Balancer' must be removed for grafana service and 
 in place of it origial service of type 'NodePort' must be restored. After that command 'EKSCTL delete' can be executed
 to correctly deleted all components. Otherwise some components remain active. To avoid billing for active components their
-must be removed manually on AWS console. In such case please login to AWS console and check services to remove: EC2 - Instances, 
-EC2 - Load Balancer, EKS.
+must be removed manually on AWS console. In such case please login to AWS console, choose apropriate datacenter location
+and check services: EC2 - Instances, EC2 - Load Balancer, EKS.

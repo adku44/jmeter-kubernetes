@@ -28,18 +28,18 @@ kubectl delete namespace load-test
 
 Connect to POD (e.g.)
 ```
-kubectl exec -it -n load-test jmeter-grafana-6cdb4c7cf8-dpckm  -- /bin/sh
+kubectl exec -it -n load-test influxdb-6cdb4c7cf8-dpckm  -- /bin/sh
 ```
 
 Exposure grafana service
 ```
-kubectl get svc jmeter-grafana -n load-test
-kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get svc grafana -n load-test
+kubectl -n load-test patch svc grafana -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
 Remove Load Balancer
 ```
-kubectl -n load-test patch svc jmeter-grafana -p '{"spec": {"type": "NodePort"}}'
+kubectl -n load-test patch svc grafana -p '{"spec": {"type": "NodePort"}}'
 ```
 
 Increase number of slaves
@@ -50,7 +50,7 @@ kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 3}
 ## Deployment of Load Test app
 Start deployment of all necessary pods
 ```
-./deploy-load-test-app.sh
+./deployment_start.sh
 ```
 
 Wait untill all pods are running. Check it with command
@@ -58,9 +58,16 @@ Wait untill all pods are running. Check it with command
 kubectl get -n load-test all
 ```
 
-When all pods are running then perform configuration setup
+## Deploy dummy pod
+Dummy pod is used to simulate tested application and this pod has defined service 'nginx-bumper' where all 
+testing requests will be sent to. Dummy pod is built on nginx container. Test scenario uses requests with 
+two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives error. 
+Becasue of that after execution of test scenario from file ```demo.jmx
+it will be reported 50 % of errors. 
+
+Deploy dummy pod
 ```
-./configure-pods.sh
+./nginx-start.sh
 ```
 
 ## Start Load Testing
@@ -74,17 +81,5 @@ First observations shall be visible on Grafana dashboard during performing tests
 Execution of the test scenario shall fininished sucessfully with proper information on the output.
 In case if you want to break test during an execution then stop command must be given.  
 ```
-./stop-test.sh
+./test-stop.sh
 ```
-## Troubleshooting
-Sometimes can happen that slave pods are busy and new tests are not possible to run. Such situation can occurs 
-in case of huge nubmers of response errors or improprate closing test scenario by script ```stop-test.sh.
-When such situation happen then slaves must be killed manually by command with apropiate slave name.
-
-Kill POD (e.g.)
-```
-kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4
-kubectl delete pods -n load-test jmeter-slave-7988854fcb-4zft4 --force
-```
-
-Killed pod will be removed and in place of it a new one will be created automatically accordingly to deployment file.

@@ -58,6 +58,7 @@ aws-iam-authenticator version
 configure access to aws from your PC
 
 - create aws user inside aws 
+IAM Service -> Users -> Add users -> 'Access key - Programmatic access'
 - copy user name (IAM user's Access key) and access key (IAM user's secret key)
 - run in wsl terminal `aws configure`
 

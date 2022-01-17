@@ -1,7 +1,7 @@
 ## jmeter-kubernetes
 Load Test as a service (LTaaS)
 
-This service is run in kubernetes cluster.
+This service deditaced to run in kubernetes cluster.
 
 ##
 ![Alt text](doc/architecture-ltaas.png)

@@ -7,7 +7,7 @@ and handle Load Test application.
 
 `eksctl delete cluster --name=LTaas --region=eu-north-1`
 
-> *About 20 minutes takes buliding k8s cluster with EKSCTL tool* 
+> *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
 ## Basic Commands
 Check namespaces and PODs
@@ -62,7 +62,7 @@ kubectl get -n load-test all
 Dummy pod is used to simulate tested application.
 The pod is built on nginx container and it has defined service 'nginx-bumper' where all 
 testing requests will be sent to.  
-Test scenario uses requests with two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives error. 
+Test scenario uses requests with two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives an error. 
 Becasue of that after execution of test scenario from file `demo.jmx` it will be reported 50 % of errors. 
 
 Deploy dummy pod
@@ -71,7 +71,7 @@ Deploy dummy pod
 ```
 
 ## Start Load Testing
-Test scenario is included in demo.jmx file. This file is maintened by jmeter ui application
+Test scenario is included in `demo.jmx` file. This file is editable by jmeter ui application
 and can be customized for own purpose.
 Start the demo file 
 ```

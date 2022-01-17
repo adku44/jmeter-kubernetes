@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
       - name: jmslave
-        image: kubernautslabs/jmeter_slave:latest
+        image: adku/jmeter-k8s:1.0
         imagePullPolicy: IfNotPresent
+        command: ["/bin/sh", "-c"]
+        args: 
+        - "/jmeter/apache-jmeter-5.4/bin/jmeter-server -Dserver.rmi.localport=50000 -Dserver_port=1099 -Jserver.rmi.ssl.disable=true"
         ports:
         - containerPort: 1099
         - containerPort: 50000

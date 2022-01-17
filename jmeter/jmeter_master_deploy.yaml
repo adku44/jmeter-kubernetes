@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: jmmaster
-        image: kubernautslabs/jmeter_master:latest
+        image: adku/jmeter-k8s:1.0
         imagePullPolicy: IfNotPresent
         # Keep running container
         command: [ "sleep" ]

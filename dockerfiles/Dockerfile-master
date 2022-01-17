@@ -1,7 +1,0 @@
-FROM kubernautslabs/jmeter-base:latest
-
-LABEL org.opencontainers.image.created="12 January 2022"	
-LABEL org.opencontainers.image.authors="adku44"	
-LABEL org.opencontainers.image.revision="1.0"
-
-EXPOSE 60000

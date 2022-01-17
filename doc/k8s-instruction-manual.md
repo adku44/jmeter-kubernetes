@@ -58,9 +58,9 @@ Wait untill all pods are running. Check it with command
 kubectl get -n load-test all
 ```
 
-## Deploy dummy pod
-Dummy pod is used to simulate tested application.
-The pod is built on nginx container and it has defined service 'nginx-bumper' where all 
+## Deploy Dummy POD
+Dummy POD is used to simulate tested application.
+The POD is built on nginx container and it has defined service 'nginx-bumper' where all 
 testing requests will be sent to.  
 Test scenario uses requests with two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives an error. 
 Becasue of that after execution of test scenario from file `demo.jmx` it will be reported 50 % of errors. 

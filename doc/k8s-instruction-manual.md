@@ -59,11 +59,11 @@ kubectl get -n load-test all
 ```
 
 ## Deploy dummy pod
-Dummy pod is used to simulate tested application and this pod has defined service 'nginx-bumper' where all 
-testing requests will be sent to. Dummy pod is built on nginx container. Test scenario uses requests with 
-two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives error. 
-Becasue of that after execution of test scenario from file ```demo.jmx
-it will be reported 50 % of errors. 
+Dummy pod is used to simulate tested application.
+The pod is built on nginx container and it has defined service 'nginx-bumper' where all 
+testing requests will be sent to.  
+Test scenario uses requests with two methods: GET and POST. The first method gives success response (200 OK) and the second (POST) gives error. 
+Becasue of that after execution of test scenario from file `demo.jmx` it will be reported 50 % of errors. 
 
 Deploy dummy pod
 ```

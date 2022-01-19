@@ -59,7 +59,7 @@ Configure access to aws from your PC
 
 - create aws user inside aws 
   - `IAM Service -> Users -> Add users -> 'Access key - Programmatic access' -> Users group - admin`
-- copy user name (IAM user's Access key) and access key (IAM user's secret key)
+- copy user name `[IAM user's Access key]` and access key `[IAM user's secret key]`
 - run in wsl terminal `aws configure`
 
 Enter the following details accordingly:

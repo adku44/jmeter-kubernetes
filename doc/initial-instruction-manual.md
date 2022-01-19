@@ -55,7 +55,7 @@ aws-iam-authenticator version
 ```
 
 ## Configure AWS CLI
-configure access to aws from your PC
+Configure access to aws from your PC
 
 - create aws user inside aws 
   - `IAM Service -> Users -> Add users -> 'Access key - Programmatic access' -> Users group - admin`

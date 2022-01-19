@@ -1,38 +1,52 @@
 ### Prerequisities
 
-Start kubernetes cluster
+Kubernetes cluster must be running
 
 ## Workshops plan step-by-step
 
+### Setting up namespace
+```
+kubectl get namespaces
+```
+```
+kubectl create namespace qa_workshop
+```
+```
+kubectl config set-context --current --namespace=qa_workshop
+```
 ### Deployment file
-
-1.
-   ```js
-   import '@github/clipboard-copy-element'
-   ``` 
-2. hello
-3. 
 ```
-kubectl get po -n load-test
+kubectl create -f ./jmeter/jmeter_slaves_deploy.yaml
+kubectl create -f ./jmeter/jmeter_master_deploy.yaml
 ```
-4. ```
-kubectl delete namespace load-test
+```
+kubectl get pods
+```
+### Removing working POD
 ```
 
-### Removing deployment
-
-```js
-import '@github/clipboard-copy-element'
 ```
+```
+
+```
+### Patching deployment file
+```
+
+```
+```
+
+```
+
+
 
 ### Service deployment
-3. `kubectl get po -n load-test`
-4. `kubectl delete namespace load-test`
-### Patching deployment file
+
+
+
 
 ### Increase number of replicas
 
-### Removing working POD
+
 
 ### Logging into POD
 
@@ -42,10 +56,9 @@ import '@github/clipboard-copy-element'
 
 ### Running empty POD
 
+### Removing deployment
 
-
-Import as ES modules:
-
-```js
-import '@github/clipboard-copy-element'
 ```
+kubectl delete namespace qa_workshop
+```
+

@@ -63,10 +63,10 @@ Configure access to aws from your PC
 - run in wsl terminal `aws configure`
 
 Enter the following details accordingly:
-- AWS Access Key ID [IAM user's Access key]
-- AWS Secret Access Key [IAM user's secret key]
-- Default region name [aws region e.g. eu-north-1]
-- Default output format [JSON format is fine]
+- AWS Access Key ID `[IAM user's Access key]`
+- AWS Secret Access Key `[IAM user's secret key]`
+- Default region name `[aws region e.g. eu-north-1]`
+- Default output format `[JSON format is fine]`
 
 Check configuration `aws iam get-user`
 

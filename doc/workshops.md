@@ -141,19 +141,27 @@ kubectl delete -f ./jmeter/jmeter_master_deploy.yaml
 ```
 Restore file `./jmeter/jmeter_master_deploy.yaml` to its original version by removing `#` tags and redeploy a new one
 
-### Provisioning POD
-
-### Running empty POD
-
 ### Get detailed information
 ```
 kubectl describe namespaces
 ```
+```
+kubectl describe -f ./jmeter/jmeter_master_deploy.yaml
+```
+```
+kubectl describe pod jmeter-slaves-[...]
+```
 
 ### Removing deployment
+Remove service 
 ```
-kubectl delete -f ./jmeter/jmeter_master_deploy.yaml
+kubectl delete -f ./jmeter/jmeter_slaves_svc.yaml
 ```
+Remove deployment 
+```
+kubectl delete -f ./jmeter/jmeter_slaves_deploy.yaml
+```
+Remove namespace
 ```
 kubectl delete namespace qa-workshop
 ```

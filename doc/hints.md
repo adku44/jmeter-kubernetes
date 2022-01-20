@@ -22,3 +22,11 @@ in place of it origial service of type 'NodePort' must be restored. After that c
 to correctly deleted all components. Otherwise some components remain active. To avoid billing for active components their
 must be removed manually on AWS console. In such case please login to AWS console, choose apropriate datacenter location
 and check services: EC2 - Instances, EC2 - Load Balancer, EKS.
+
+
+## How to change grafana dashboard
+In presented solution it's possible to change grafana dashboard to another one. The source of the different dashbords for jmeter is grafana web site. All avaiable jmeter load test dashboards are located 
+[here](https://grafana.com/grafana/dashboards/?search=jmeter). It's important that each load test dashboard has corresponding backed listener. Because ot that two steps are required to change dashboard.
+1. Download dashboard definition, it's located in json file.
+2. Update `.jmx` file with corresponding 'backed listener' to the dashboard. This can be found in 'Thread Group' object.
+

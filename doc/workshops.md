@@ -110,6 +110,32 @@ getent ahostsv4 grafana | cut -d' ' -f1 | sort -u
 ```
 kubectl get pods
 ```
+Remove deployment of master POD
+```
+kubectl delete -f ./jmeter/jmeter_master_deploy.yaml
+```
+> *Wait till deployment is not vivible by command `kubectl get pods`*
+
+Edit file ./jmeter/jmeter_master_deploy.yaml
+```
+nano ./jmeter/jmeter_master_deploy.yaml
+```
+Go to line 22 `ctrl-_` and comment lines: 22 and 23
+
+`ctrl-x` save and close the file.
+> *Keys `command` and `args` will not be executed during deployment of the POD*
+
+Redeploy master POD
+```
+kubectl create -f ./jmeter/jmeter_master_deploy.yaml
+```
+Check status of the POD
+```
+kubectl get pods
+```
+> *master POD is not running*
+
+Restore file `./jmeter/jmeter_master_deploy.yaml` to its original version by removing `#` tags
 
 ### Provisioning POD
 

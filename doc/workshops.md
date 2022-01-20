@@ -88,7 +88,7 @@ kubectl describe svc jmeter-slaves-svc
 
 ### Logging into POD
 ```
-kubectl get pods
+kubectl get pods -o wide
 ```
 > *Take a name of running master POD* 
 
@@ -104,8 +104,12 @@ getent ahostsv4 jmeter-slaves-svc | cut -d' ' -f1 | sort -u
 ```
 getent ahostsv4 grafana | cut -d' ' -f1 | sort -u 
 ```
+> *The commands resolve host names and give IP addresses associated with the services* 
 
 ### Running empty POD
+```
+kubectl get pods
+```
 
 ### Provisioning POD
 

@@ -23,6 +23,8 @@ kubectl config view | grep namespace
 ### Deployment file
 ```
 kubectl create -f ./jmeter/jmeter_slaves_deploy.yaml
+```
+```
 kubectl create -f ./jmeter/jmeter_master_deploy.yaml
 ```
 ```
@@ -49,11 +51,18 @@ kubectl get pods
 > *Notice that master POD is recreated* 
 
 ### Patching deployment file
+Change number of slave PODs
 ```
 kubectl patch deployment jmeter-slaves -p '{"spec": {"replicas": 1}}'
 ```
 ```
 kubectl get pods
+```
+
+### Increase number of replicas
+Increase number of slave PODs
+```
+kubectl patch deployment jmeter-slaves -p '{"spec": {"replicas": 3}}'
 ```
 
 ### Service deployment
@@ -69,6 +78,7 @@ Create a service of type NodePort
 ```
 kubectl create -f ./grafana/jmeter_grafana_svc.yaml
 ```
+Get all services
 ```
 kubectl get svc
 ```
@@ -76,14 +86,23 @@ kubectl get svc
 kubectl describe svc jmeter-slaves-svc
 ```
 
-
-### Increase number of replicas
-
-
-
 ### Logging into POD
 ```
-kubectl exec -it jmeter-grafana-6cdb4c7cf8-dpckm  -- /bin/sh
+kubectl get pods
+```
+> *Take a name of running master POD* 
+
+Login to master POD
+```
+kubectl exec -it jmeter-master-[...]  -- /bin/sh
+```
+Check visibility of services from master POD. Execute below commands
+from terminal.
+```
+getent ahostsv4 jmeter-slaves-svc | cut -d' ' -f1 | sort -u 
+```
+```
+getent ahostsv4 grafana | cut -d' ' -f1 | sort -u 
 ```
 
 ### Running empty POD

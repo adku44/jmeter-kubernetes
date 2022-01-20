@@ -106,7 +106,7 @@ getent ahostsv4 grafana | cut -d' ' -f1 | sort -u
 ```
 > *The commands resolve host names and give IP addresses associated with the services* 
 
-### Running empty POD
+### Running POD with idle container
 ```
 kubectl get pods
 ```
@@ -114,9 +114,9 @@ Remove deployment of master POD
 ```
 kubectl delete -f ./jmeter/jmeter_master_deploy.yaml
 ```
-> *Wait till deployment is not vivible by command `kubectl get pods`*
+> *Wait till deployment is not visible by command `kubectl get pods`*
 
-Edit file ./jmeter/jmeter_master_deploy.yaml
+Edit file `./jmeter/jmeter_master_deploy.yaml`
 ```
 nano ./jmeter/jmeter_master_deploy.yaml
 ```
@@ -133,9 +133,13 @@ Check status of the POD
 ```
 kubectl get pods
 ```
-> *master POD is not running*
+> *master POD is not running, but its state is completed*
 
-Restore file `./jmeter/jmeter_master_deploy.yaml` to its original version by removing `#` tags
+Remove deployment of master POD
+```
+kubectl delete -f ./jmeter/jmeter_master_deploy.yaml
+```
+Restore file `./jmeter/jmeter_master_deploy.yaml` to its original version by removing `#` tags and redeploy a new one
 
 ### Provisioning POD
 

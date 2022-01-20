@@ -19,8 +19,8 @@ spec:
         image: adku/jmeter-k8s:1.0
         imagePullPolicy: IfNotPresent
         # Keep running container
-#        command: [ "sleep" ]
-#        args: [ "infinity" ]
+        command: [ "sleep" ]
+        args: [ "infinity" ]
         
         volumeMounts:
           - name: loadtest

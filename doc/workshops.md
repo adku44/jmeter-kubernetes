@@ -1,6 +1,6 @@
 ### Prerequisities
 
-Kubernetes cluster must be running
+Kubernetes cluster must be running. All commands shall be executeted from git clone repository.
 
 ## Workshops plan step-by-step
 
@@ -18,7 +18,7 @@ kubectl config set-context --current --namespace=qa-workshop
 ```
 Get the name of current namespace
 ```
-kubectl config view --minify --output 'jsonpath={..namespace}'; echo
+kubectl config view | grep namespace
 ```
 ### Deployment file
 ```
@@ -28,6 +28,7 @@ kubectl create -f ./jmeter/jmeter_master_deploy.yaml
 ```
 kubectl get pods
 ```
+> *Notice that master POD is not running* 
 ### Configmaps
 Deploy configmap to have running master POD
 ```
@@ -36,6 +37,7 @@ kubectl create -f ./jmeter/jmeter_master_configmap.yaml
 ```
 kubectl get pods
 ```
+> *Wait till master POD state is running* 
 
 ### Kill working POD
 ```
@@ -44,6 +46,7 @@ kubectl delete pod jmeter-master-[...]
 ```
 kubectl get pods
 ```
+> *Notice that master POD is recreated* 
 
 ### Patching deployment file
 ```
@@ -54,8 +57,24 @@ kubectl get pods
 ```
 
 ### Service deployment
-
-
+Get ip addresses of all PODs
+```
+kubectl get pod -o wide
+```
+Create a service of type ClusterIP
+```
+kubectl create -f ./jmeter/jmeter_slaves_svc.yaml
+```
+Create a service of type NodePort
+```
+kubectl create -f ./grafana/jmeter_grafana_svc.yaml
+```
+```
+kubectl get svc
+```
+```
+kubectl describe svc jmeter-slaves-svc
+```
 
 
 ### Increase number of replicas
@@ -63,6 +82,9 @@ kubectl get pods
 
 
 ### Logging into POD
+```
+kubectl exec -it jmeter-grafana-6cdb4c7cf8-dpckm  -- /bin/sh
+```
 
 ### Running empty POD
 

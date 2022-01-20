@@ -5,7 +5,6 @@ metadata:
   labels:
     app: nginx
 spec:
-  #clusterIP: None
   ports:
     - port: 80
       protocol: TCP

@@ -12,7 +12,7 @@ echo "Checking if kubectl is present"
 
 if ! hash kubectl 2>/dev/null
 then
-    echo "'kubectl' was not found in PATH"
+    echo "Command 'kubectl' was not found in PATH"
     echo "Kindly ensure access to kubernetes cluster"
     exit
 fi
@@ -55,9 +55,6 @@ kubectl create -n $namespace -f $working_dir/jmeter/jmeter_master_configmap.yaml
 kubectl create -n $namespace -f $working_dir/jmeter/jmeter_master_deploy.yaml
 
 # Influxdb
-
-echo "Deploying Influxdb config maps" 
-kubectl create -n $namespace -f $working_dir/influx/influxdb_configmap.yaml
 
 echo "Creating Influxdb pod and service"
 kubectl create -n $namespace -f $working_dir/influx/influxdb_deploy.yaml

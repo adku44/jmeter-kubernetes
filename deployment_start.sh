@@ -57,11 +57,11 @@ kubectl create -n $namespace -f $working_dir/jmeter/jmeter_master_deploy.yaml
 # Influxdb
 
 echo "Deploying Influxdb config maps" 
-kubectl create -n $namespace -f $working_dir/influx/jmeter_influxdb_configmap.yaml
+kubectl create -n $namespace -f $working_dir/influx/influxdb_configmap.yaml
 
 echo "Creating Influxdb pod and service"
-kubectl create -n $namespace -f $working_dir/influx/jmeter_influxdb_deploy.yaml
-kubectl create -n $namespace -f $working_dir/influx/jmeter_influxdb_svc.yaml
+kubectl create -n $namespace -f $working_dir/influx/influxdb_deploy.yaml
+kubectl create -n $namespace -f $working_dir/influx/influxdb_svc.yaml
 
 # Grafana
 
@@ -71,8 +71,8 @@ kubectl create -n $namespace -f $working_dir/grafana/grafana_provisioning_dashbo
 kubectl create -n $namespace -f $working_dir/grafana/grafana_provisioning-datasource_configmap.yaml
 
 echo "Creating Grafana pod and service"
-kubectl create -n $namespace -f $working_dir/grafana/jmeter_grafana_deploy.yaml
-kubectl create -n $namespace -f $working_dir/grafana/jmeter_grafana_svc.yaml
+kubectl create -n $namespace -f $working_dir/grafana/grafana_deploy.yaml
+kubectl create -n $namespace -f $working_dir/grafana/grafana_svc.yaml
 
 sleep 2
 

@@ -76,7 +76,7 @@ kubectl create -f ./jmeter/jmeter_slaves_svc.yaml
 ```
 Create a service of type NodePort
 ```
-kubectl create -f ./grafana/jmeter_grafana_svc.yaml
+kubectl create -f ./grafana/grafana_svc.yaml
 ```
 Get all services
 ```
@@ -102,7 +102,7 @@ from terminal.
 getent ahostsv4 jmeter-slaves-svc | cut -d' ' -f1 | sort -u 
 ```
 ```
-getent ahostsv4 grafana | cut -d' ' -f1 | sort -u 
+getent ahostsv4 grafana-svc | cut -d' ' -f1 | sort -u 
 ```
 > *The commands resolve host names and give IP addresses associated with the services* 
 

@@ -33,13 +33,13 @@ kubectl exec -it -n load-test influxdb-6cdb4c7cf8-dpckm  -- /bin/sh
 
 Exposure grafana service
 ```
-kubectl get svc grafana -n load-test
-kubectl -n load-test patch svc grafana -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get svc grafana-svc -n load-test
+kubectl -n load-test patch svc grafana-svc -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
 Remove Load Balancer
 ```
-kubectl -n load-test patch svc grafana -p '{"spec": {"type": "NodePort"}}'
+kubectl -n load-test patch svc grafana-svc -p '{"spec": {"type": "NodePort"}}'
 ```
 
 Increase number of slaves

@@ -23,8 +23,8 @@ spec:
               exec:
                 command:
                   - /bin/sh
-                  - "-c" influx -execu
-                  - until curl -s http://localhost:8086/ping; do sleep 1; done;te 'CREATE DATABASE jmeter'
+                  - "-c"
+                  - until curl -s http://localhost:8086/ping; do sleep 1; done; influx -execute 'CREATE DATABASE jmeter'
           volumeMounts:
           - name: config-volume
             mountPath: /etc/influxdb

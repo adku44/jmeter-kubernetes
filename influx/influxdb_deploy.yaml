@@ -25,15 +25,9 @@ spec:
                   - /bin/sh
                   - "-c"
                   - until curl -s http://localhost:8086/ping; do sleep 1; done; influx -execute 'CREATE DATABASE jmeter'
-          volumeMounts:
-          - name: config-volume
-            mountPath: /etc/influxdb
           ports:
             - containerPort: 8083
               name: influx
             - containerPort: 8086
               name: api
-      volumes:
-      - name: config-volume
-        configMap:
-         name: influxdb-config
+

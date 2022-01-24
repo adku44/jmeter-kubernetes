@@ -36,6 +36,7 @@ Exposure grafana service
 kubectl get svc grafana-svc -n load-test
 kubectl -n load-test patch svc grafana-svc -p '{"spec": {"type": "LoadBalancer"}}'
 ```
+> *About 5 minutes takes deployment of Load Balancer* 
 
 Remove Load Balancer
 ```

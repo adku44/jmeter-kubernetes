@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#Create jmeter Load Test application on kuberntes cluster
-#January 05, 2022
-#by adku44 
+# Deploy jmeter Load Test application on kuberntes cluster
+#
+# January 05, 2022
+# by adku44 
 
 working_dir=`pwd`
 
@@ -20,14 +21,13 @@ fi
 kubectl version --short
 echo
 
-#Check If namespace exists
-
+# Check If namespace exists
 kubectl get namespace $namespace > /dev/null 2>&1
 
 if [ $? -eq 0 ]
 then
   echo "Namespace $namespace already exists, please select a unique name or remove existing"
-  echo "Current list of namespaces on the kubernetes cluster"
+  echo "Current list of namespaces on the kubernetes cluster: "
   sleep 2
 
   kubectl get namespaces | grep -v NAME | awk '{print $1}'
@@ -78,4 +78,4 @@ echo
 
 kubectl get -n $namespace all
 
-echo "All pods have been created"
+echo "All PODs have been created"

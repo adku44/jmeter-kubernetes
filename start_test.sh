@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-#Script created to launch Jmeter tests directly from the current terminal without accessing the jmeter master pod.
-#It requires that you supply the path to the jmx file
-#After execution, test script jmx file may be deleted from the pod itself but not locally.
+# This script reads '.jmx' file with test scenario, copy it to jmeter master POD
+# and finally execute it on the master
+#
+# January 26, 2022
+# by adku44
+
 
 working_dir="`pwd`"
 
-#Get namesapce variable
+# Read namesapce 
 namespace=`awk '{print $NF}' "$working_dir/namespace-for-k8s"`
 
 jmx="$1"
@@ -13,19 +16,18 @@ jmx="$1"
 
 if [ ! -f "$jmx" ];
 then
-    echo "Test script file was not found in PATH"
-    echo "Kindly check and input the correct file path"
+    echo "Test script file does not exist or not found"
     exit
 fi
 
-test_name="$(basename "$jmx")"
+# Filter only file name from the path
+file_name="$(basename "$jmx")"
 
-#Get Master pod details
-
+# Get master POD name
 master_pod=`kubectl get po -n $namespace | grep jmeter-master | awk '{print $1}'`
 
-kubectl cp "$jmx" -n $namespace "$master_pod:/$test_name"
+# Copy file with test scenario into master POD
+kubectl cp "$jmx" -n $namespace "$master_pod:/$file_name"
 
-## Echo Starting Jmeter load test
-
-kubectl exec -ti -n $namespace $master_pod -- /bin/bash /load_test "$test_name"
+# Strat load tests
+kubectl exec -ti -n $namespace $master_pod -- /bin/bash /load_test "$file_name"

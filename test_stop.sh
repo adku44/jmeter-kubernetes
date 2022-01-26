@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
-#Script writtent to stop a running jmeter master test
-#Kindly ensure you have the necessary kubeconfig
+# This script is used to stop a running tests on master POD
+# It's necessary to run the script when the execution hangs 
+# because of a huge number of requests sent by slaves PODs
+#
+# January 26, 2022
+# by adku44
 
 working_dir=`pwd`
 
-#Get namesapce variable
+# Read namesapce 
 namespace=`awk '{print $NF}' $working_dir/namespace-for-k8s`
 
+# Get master POD name
 master_pod=`kubectl get po -n $namespace | grep jmeter-master | awk '{print $1}'`
 
+# Execute stop script
 kubectl -n $namespace exec -ti $master_pod -- /bin/bash /jmeter/apache-jmeter-5.0/bin/stoptest.sh
 
-echo  "Stop test request has been send to master node"
+echo  "Stop test script initiated on master POD"

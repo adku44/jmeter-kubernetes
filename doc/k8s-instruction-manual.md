@@ -1,6 +1,6 @@
 
-This manual covers basic kubernetes commands to handle POD configuration, patching deployments files (.yaml) 
-and handle Load Test application.
+This manual covers basic kubernetes commands to handle POD configuration, patching deployment files (.yaml) 
+and handling Load Test application.
 
 ## Start/stop kubernetes cluster
 `eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small`

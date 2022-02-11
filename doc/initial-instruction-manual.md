@@ -1,6 +1,6 @@
 
-This manual covers information about basic kubernetes environment which can be used to run Load Test service (LTaaS).
-Kubernetes environment is setup in AWS (Amazon Web Servises) with EKSCTL tool.
+This manual covers information about necessary tools to setup basic kubernetes environment.
+Kubernetes environment is setup in AWS (Amazon Web Services) by EKSCTL tool.
 
 ## install WSL:
 Windows Subsystem for Linux
@@ -54,20 +54,6 @@ mkdir -p $HOME/bin && mv ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 aws-iam-authenticator version
 ```
 
-## Configure AWS CLI
-Configure access to aws from your PC
 
-- create aws user inside aws 
-  - `IAM Service -> Users -> Add users -> 'Access key - Programmatic access' -> Users group - admin`
-- copy user name `[IAM user's Access key]` and access token `[IAM user's secret key]`
-- run in wsl terminal `aws configure`
-
-  - Enter the following details accordingly:
-    - AWS Access Key ID `[IAM user's Access key]`
-    - AWS Secret Access Key `[IAM user's secret key]`
-    - Default region name `[aws region e.g. eu-north-1]`
-    - Default output format `[JSON format is fine]`
-
-Check configuration `aws iam get-user`
 
 

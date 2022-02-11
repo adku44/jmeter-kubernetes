@@ -1,7 +1,13 @@
 
 ## Configure AWS CLI with AWS SSO (Single Sign-On) 
 
+- Ensure SSO access to AWS
+- Find credentials 
+  - `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
+- Use 'Option 1' from tab 'macOS and Linux'
+- Copy credentials to WSL terminal
 
+> *It's necessary to use 'Option 1' i.e. to export credentials to environment variables, because EKSCTL tool is able to grab them in this way only* 
 
 ## Configure AWS CLI with IAM user
 Configure access to aws from your PC

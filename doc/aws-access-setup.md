@@ -7,7 +7,7 @@
 - Use 'Option 1' from tab 'macOS and Linux'
 - Copy credentials to WSL terminal
 
-> *It's necessary to use 'Option 1' i.e. to export credentials to environment variables, because EKSCTL tool is able to grab them in this way only* 
+> *It's necessary to use 'Option 1' i.e. export credentials to environment variables, because EKSCTL tool can grab them in this way only* 
 
 ## Configure AWS CLI with IAM user
 Configure access to aws from your PC

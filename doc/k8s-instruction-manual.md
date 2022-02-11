@@ -3,9 +3,9 @@ This manual covers basic kubernetes commands to handle POD configuration, patchi
 and handling Load Test application.
 
 ## Start/stop kubernetes cluster
-`eksctl create cluster --name=LTaas --region=eu-north-1 --nodes=2 --instance-types=t3.small`
+`eksctl create cluster --name=LTaas --region=eu-west-2 --nodes=2 --instance-types=t3.small`
 
-`eksctl delete cluster --name=LTaas --region=eu-north-1`
+`eksctl delete cluster --name=LTaas --region=eu-west-2`
 
 > *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 

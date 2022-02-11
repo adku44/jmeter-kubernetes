@@ -9,6 +9,10 @@
 
 > *It's necessary to use 'Option 1' i.e. export credentials to environment variables, because EKSCTL tool can grab them in this way only* 
 
+- In wsl terminal type with your user profile name `export AWS_PROFILE=[...]`
+- Check token expiration `aws sts get-caller-identity`
+- If token has expired login again `aws sso login`
+
 ## Configure AWS CLI with IAM user
 Configure access to aws from your PC
 

@@ -1,6 +1,6 @@
 
-This manual covers basic kubernetes commands to handle POD configuration, patching deployment files (.yaml) 
-and handling Load Test application.
+This manual covers information of handling Load Test application. Starting supplementary components like load balancer to be able access the service from external IP and nginx bumper to simulate external (tested) application.
+Handling of number of slaves pods and clearing procedures.
 
 ## Start/stop kubernetes cluster
 Please provide your unique name in place of `[...]`

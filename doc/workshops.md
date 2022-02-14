@@ -1,3 +1,9 @@
+This workshops plan covers basic kubernetes commands to handle POD configuration, patching deployment files (.yaml), logging into PODs.
+Aim of the workshops is explanation of namespace, concept of config maps and services.
+
+The plan is based on Load Test application.
+
+
 ### Prerequisities
 
 Kubernetes cluster must be running. All commands shall be executeted from git clone repository.

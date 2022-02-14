@@ -18,4 +18,4 @@ Amazon Web Services (AWS) is used as a cloud infrastructure.
 
 4. Troubleshooting [guide](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/hints.md)
 
-5. Workshops [plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md) cover basic information how to use kubernetes and adjust kubernetes environment for LTaaS.
+5. [Workshops plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md) covers basic information how to use kubernetes and adjust kubernetes environment for LTaaS.

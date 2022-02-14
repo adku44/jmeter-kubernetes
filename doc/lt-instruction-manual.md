@@ -74,7 +74,7 @@ kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 1}
 ```
 
 ## Remove Load Test service 
-Simple remove the namespace to wipe out Load Test service. All components created with the namespace will be removed i.e. load balacer, services, deployments, conig maps etc.
+Simple remove the namespace to wipe out Load Test service. All components created with the namespace will be removed i.e. load balancer, services, deployments, conig maps etc.
 ```
 kubectl delete namespace load-test
 ```

@@ -9,12 +9,12 @@ Instance of type `large` is recommended to use by `eksctl` tool
 ```
 eksctl create cluster --name=LTaas[...] --region=eu-west-2 --nodes=2 --instance-types=t3.large
 ```
->   *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
+> *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
 ```
 eksctl delete cluster --name=LTaas[...] --region=eu-west-2
 ```
->   *k8s cluster shall be removed each time to avoid unnecessary charging costs* 
+> *k8s cluster shall be removed each time to avoid unnecessary charging costs* 
 
 ## Deployment of Load Test app
 Start deployment of all necessary pods

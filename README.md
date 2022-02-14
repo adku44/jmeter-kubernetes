@@ -3,17 +3,19 @@ Load Test as a service (LTaaS)
 
 The service is dedicated to run in kubernetes cluster
 and is based on Apache JMeter Distributed Testing schema.
+Amazon Web Services (AWS) is used as a cloud infrastructure.
+
 
 ##
 ![Alt text](doc/architecture-ltaas.png)
 
 ##
-Detailed description how to begin with initial AWS setup and install necessary tools to be able to start adventure with kubernetes can be found in [Initial Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/initial-instruction-manual.md)
+1. Detailed description how to begin with initial setup and install necessary tools to be able to start adventure with kubernetes can be found in [Initial Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/initial-instruction-manual.md)
 
-[Setup AWS credentials](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/aws-access-setup.md)
+2. [Setup access to AWS](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/aws-access-setup.md)
 
-Basic information how to use kubernetes and adjust kubernetes environment for LTaaS can be found in [k8s Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/k8s-instruction-manual.md). Also description of handling Load Test applicaton is covered by this manual. 
+3. Handling of Load Test service is covered by [Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/k8s-instruction-manual.md).
 
-Troubleshooting [guide](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/hints.md)
+4. Troubleshooting [guide](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/hints.md)
 
-Workshops [plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md)
+5. Workshops [plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md) cover basic information how to use kubernetes and adjust kubernetes environment for LTaaS.

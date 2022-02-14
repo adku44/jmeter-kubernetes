@@ -4,6 +4,8 @@ Handling of number of slaves pods and clearing procedures.
 
 ## Start/stop kubernetes cluster
 Please provide your unique name in place of `[...]`
+Specified region must match with region in `~/.aws/config` file.
+Instance of type `large` is recommended to use by `eksctl` tool
 ```
 eksctl create cluster --name=LTaas[...] --region=eu-west-2 --nodes=2 --instance-types=t3.large
 ```
@@ -12,6 +14,7 @@ eksctl create cluster --name=LTaas[...] --region=eu-west-2 --nodes=2 --instance-
 ```
 eksctl delete cluster --name=LTaas[...] --region=eu-west-2
 ```
+> *k8s cluster shall be remove each time to avoid unnecessary charging costs* 
 
 ## Deployment of Load Test app
 Start deployment of all necessary pods

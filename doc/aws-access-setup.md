@@ -2,14 +2,16 @@
 ## Configure AWS CLI with AWS SSO (Single Sign-On) 
 
 - Ensure SSO access to AWS
+- Open AWS SSO page to login
 - Find credentials 
   - `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
-- Use 'Option 2' from tab 'macOS and Linux'
-- Copy credentials to `~/.aws/credentials` file in WSL terminal. Here `nano` editor can be used to save credentials.
+- Use 'Option 2' (recommended) from tab 'macOS and Linux'
+- Copy credentials to `~/.aws/credentials` file in WSL terminal. Here `nano` editor can be used to save the credentials.
 - Setup default AWS profile. In wsl terminal type with your user profile name `export AWS_PROFILE=[...]`. By default profile name is `accountID_RoleName` i.e. "[729372198261_AdministratorAccess]"
 - Login to your account `aws sso login`
 - Check token expiration `aws sts get-caller-identity`
 - If token has expired login again:
+  - Refresh login page to AWS SSO
   - Find new credentials: `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
   - Copy new credentials to `~/.aws/credentials`
   - Login again with new credentials `aws sso login`

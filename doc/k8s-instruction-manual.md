@@ -3,13 +3,14 @@ This manual covers basic kubernetes commands to handle POD configuration, patchi
 and handling Load Test application.
 
 ## Start/stop kubernetes cluster
+Please provide your unique name in place of `[...]`
 ```
-eksctl create cluster --name=[LTaas...] --region=eu-west-2 --nodes=2 --instance-types=t3.large
+eksctl create cluster --name=LTaas[...] --region=eu-west-2 --nodes=2 --instance-types=t3.large
 ```
 > *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
 ```
-eksctl delete cluster --name=[LTaas...] --region=eu-west-2
+eksctl delete cluster --name=LTaas[...] --region=eu-west-2
 ```
 
 ## Deployment of Load Test app
@@ -70,7 +71,7 @@ kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 1}
 ```
 
 ## Remove Load Test service 
-Remove namespace. All components created with the namespace will be removed i.e. load balacer, services, deployments, conig maps etc.
+Simple remove the namespace to wipe out Load Test service. All components created with the namespace will be removed i.e. load balacer, services, deployments, conig maps etc.
 ```
 kubectl delete namespace load-test
 ```
@@ -91,7 +92,6 @@ Connect to POD (e.g.)
 ```
 kubectl exec -it -n load-test influxdb-6cdb4c7cf8-dpckm  -- /bin/sh
 ```
-
 
 Remove Load Balancer
 ```

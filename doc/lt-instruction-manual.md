@@ -89,13 +89,15 @@ kubectl get namespace
 ```
 kubectl get po -n load-test
 ```
+
 Check deployment
 ```
 kubectl get deployment -n load-test
 ```
 ```
-kubectl get po -n load-test
+kubectl get pods -o wide -n load-test
 ```
+
 Connect to POD (e.g.)
 ```
 kubectl exec -it -n load-test influxdb-6cdb4c7cf8-dpckm  -- /bin/sh

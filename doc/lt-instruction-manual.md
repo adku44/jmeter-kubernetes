@@ -7,12 +7,12 @@ Please provide your unique name in place of `[...]`
 Specified region must match with region in `~/.aws/config` file.
 Instance of type `large` is recommended to use by `eksctl` tool
 ```
-eksctl create cluster --name=LTaas[...] --region=eu-west-2 --nodes=2 --instance-types=t3.large
+eksctl create cluster --region=eu-west-2 --nodes=2 --instance-types=t3.large --name=LTaas[...]
 ```
 > *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
 ```
-eksctl delete cluster --name=LTaas[...] --region=eu-west-2
+eksctl delete cluster --region=eu-west-2 --name=LTaas[...]
 ```
 > *k8s cluster shall be removed each time to avoid unnecessary charging costs* 
 
@@ -43,6 +43,8 @@ Deploy dummy pod
 Exposure grafana service to external IP address
 ```
 kubectl get svc grafana-svc -n load-test
+```
+```
 kubectl -n load-test patch svc grafana-svc -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 > *About 5 minutes takes deployment of Load Balancer* 
@@ -73,8 +75,8 @@ Decrease number of slaves
 kubectl -n load-test patch deployment jmeter-slaves -p '{"spec": {"replicas": 1}}'
 ```
 
-## Remove Load Test service 
-Simple remove the namespace to wipe out Load Test service. All components created with the namespace will be removed i.e. load balancer, services, deployments, conig maps etc.
+## Remove Load Test application 
+Simple remove the namespace to wipe out Load Test application. All components created with the namespace will be removed i.e. load balancer, services, deployments, conig maps etc.
 ```
 kubectl delete namespace load-test
 ```
@@ -83,14 +85,17 @@ kubectl delete namespace load-test
 Check namespaces and PODs
 ```
 kubectl get namespace
+```
+```
 kubectl get po -n load-test
-kubectl get po -n load-test | grep jmeter-master | awk '{print $1}'
 ```
 Check deployment
 ```
 kubectl get deployment -n load-test
 ```
-
+```
+kubectl get po -n load-test
+```
 Connect to POD (e.g.)
 ```
 kubectl exec -it -n load-test influxdb-6cdb4c7cf8-dpckm  -- /bin/sh

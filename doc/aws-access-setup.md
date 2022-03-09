@@ -24,7 +24,7 @@ Setup default AWS profile. In wsl terminal type with your user profile name `exp
 - Login to your account `aws sso login`
 - Check token expiration `aws sts get-caller-identity`
 
-Life time of token is quite short. When you get message on console: `error: You must be logged in to the server (Unauthorized)`
+Life time of token is quite short. When you get a message on your console: `error: You must be logged in to the server (Unauthorized)`
 it means that you token has expired.
 
 If token has expired login again: 

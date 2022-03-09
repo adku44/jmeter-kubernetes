@@ -12,8 +12,8 @@ Setup default AWS profile. In wsl terminal type with your user profile name `exp
 - Use 'Option 1' `Set AWS environment variables` from tab 'macOS and Linux'
 - Copy credentials to WSL terminal.
 - Configure aws (only do this point once when first time login)
-  - `aws configure sso`
-    - 
+  Type `aws configure sso`
+  - Enter the following details accordingly:
 ```
       sso_start_url = [ your sso login page]
       sso_region = eu-west-2

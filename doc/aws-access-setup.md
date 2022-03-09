@@ -11,8 +11,7 @@ Setup default AWS profile. In wsl terminal type with your user profile name `exp
 
 - Use 'Option 1' `Set AWS environment variables` from tab 'macOS and Linux'
 - Copy credentials to WSL terminal.
-- Configure aws (only do this point once when first time login)
-  Type `aws configure sso`
+- Configure aws (only do this point once when first time login). Type `aws configure sso`
   - Enter the following details accordingly:
 ```
       sso_start_url = [ your sso login page]
@@ -24,10 +23,11 @@ Setup default AWS profile. In wsl terminal type with your user profile name `exp
 ```
 - Login to your account `aws sso login`
 - Check token expiration `aws sts get-caller-identity`
-- If token has expired login again:
+
+If token has expired login again:
   - Refresh login page to AWS SSO
   - Find new credentials: `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
-  - Copy new credentials to `~/.aws/credentials`
+  - Copy new credentials to WSL terminal
   - Login again with new credentials `aws sso login`
 
 ## Configure AWS CLI with IAM user

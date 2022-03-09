@@ -24,8 +24,10 @@ Setup default AWS profile. In wsl terminal type with your user profile name `exp
 - Login to your account `aws sso login`
 - Check token expiration `aws sts get-caller-identity`
 
+Life time of token is quite short. When you get message on console: `error: You must be logged in to the server (Unauthorized)`
+it means that you token has expired.
+
 If token has expired login again: 
-> visible `error: You must be logged in to the server (Unauthorized)`
   - Refresh login page to AWS SSO
   - Find new credentials: `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
   - Copy new credentials to WSL terminal

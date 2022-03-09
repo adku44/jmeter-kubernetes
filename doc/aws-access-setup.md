@@ -3,7 +3,8 @@
 
 Ensure SSO access to AWS.
 
-Setup default AWS profile. In wsl terminal type with your user profile name `export AWS_PROFILE=[...]`. By default profile name is `accountID_RoleName` i.e. "[7219372198261_AdministratorAccess]"
+Setup default AWS profile. In wsl terminal set your user profile name by exporting `AWS_PROFILE` environmental variable. By default profile name consist of two elements: `accountID` and `RoleName` e.g "[721937219861_AdministratorAccess]" and can be found on SSO login page. The commnad should looke like 
+`export AWS_PROFILE=721937219861_AdministratorAccess`
 
 - Open AWS SSO page to login
 - Find credentials 

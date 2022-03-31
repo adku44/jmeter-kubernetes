@@ -4,9 +4,15 @@ Aim of the workshops is explanation of namespace, concept of config maps and ser
 The plan is based on Load Test application.
 
 
-### Prerequisities
+## Start kubernetes cluster in AWS
+Please provide your unique name in place of `[...]`
+Specified region must match with region in `~/.aws/config` file.
+Instance of type `large` is recommended to use by `eksctl` tool
+```
+eksctl create cluster --region=eu-west-2 --nodes=2 --instance-types=t3.large --name=LTaas[...]
+```
+> *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
-Kubernetes cluster must be running. All commands shall be executeted from git clone repository.
 
 ## Workshops plan step-by-step
 
@@ -172,3 +178,9 @@ Remove namespace
 kubectl delete namespace qa-workshop
 ```
 
+## Delete kubernetes cluster
+Clear all resources in AWS cloud.
+```
+eksctl delete cluster --region=eu-west-2 --name=LTaas[...]
+```
+> *k8s cluster shall be removed each time to avoid unnecessary charging costs* 

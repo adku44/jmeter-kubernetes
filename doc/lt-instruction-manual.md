@@ -2,21 +2,12 @@
 This manual covers information of handling Load Test application. Starting supplementary components like load balancer to be able access the service from external IP and nginx bumper to simulate external (tested) application.
 Handling of number of slaves pods and clearing procedures.
 
-## Start/stop kubernetes cluster
-Please provide your unique name in place of `[...]`
-Specified region must match with region in `~/.aws/config` file.
-Instance of type `large` is recommended to use by `eksctl` tool
-```
-eksctl create cluster --region=eu-west-2 --nodes=2 --instance-types=t3.large --name=LTaas[...]
-```
-> *About 20 minutes takes to bulid k8s cluster with EKSCTL tool* 
 
-```
-eksctl delete cluster --region=eu-west-2 --name=LTaas[...]
-```
-> *k8s cluster shall be removed each time to avoid unnecessary charging costs* 
+### Prerequisities
+Kubernetes cluster must be running. All commands shall be executeted from git clone repository.
 
-## Deployment of Load Test app
+
+## Deployment of Load Test application
 Start deployment of all necessary pods
 ```
 ./deployment_start.sh

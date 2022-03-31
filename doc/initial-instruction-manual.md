@@ -3,8 +3,9 @@ This manual covers information about necessary tools to setup basic kubernetes e
 Kubernetes environment is setup in AWS (Amazon Web Services) by EKSCTL tool.
 
 ## install WSL
-Windows Subsystem for Linux
-Please follow detailed instructions for installation in microsoft manual
+Windows Subsystem for Linux.
+Please follow detailed instructions for installation in microsoft manual.
+WSL ver.1 is suitable for wokshops purpose.
 ```
 https://docs.microsoft.com/en-us/windows/wsl/install
 ```
@@ -12,7 +13,7 @@ e.g.
 ```
 wsl --install -d Ubuntu-20.04
 ```
-WSL ver.1 is suitable for wokshops purpose.
+
 
 ## Run WSL terminal
 In Windows
@@ -20,7 +21,7 @@ In Windows
 press Windows logo key + R
 type wsl
 ```
-When WSL terminal is opened type `cd` to change to home directory
+When WSL terminal is opened type `cd` to change to home directory.
 All belowed tools must be installed in linux home directory:
 ```
 cd

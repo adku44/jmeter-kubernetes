@@ -1,8 +1,10 @@
 
 ## Configure AWS CLI with AWS SSO (Single Sign-On) 
 
+#### Prerequsities
 Ensure SSO access to AWS.
 
+#### Initial setup
 Setup default AWS profile. In wsl terminal set your user profile name by exporting `AWS_PROFILE` environmental variable. By default profile name consist of two elements: `accountID` and `RoleName` e.g "[721937219861_AdministratorAccess]" and can be found on SSO login page. The command should look like 
 `export AWS_PROFILE=721937219861_AdministratorAccess`
 

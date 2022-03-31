@@ -57,7 +57,7 @@ If token has expired login again:
   - Login again with new credentials `aws sso login`
 
 
-## Configure AWS CLI with IAM user
+## Configure AWS CLI with IAM user (not applicable)
 Configure access to aws from your PC
 
 - create aws user inside aws 

@@ -1,7 +1,7 @@
 
 ## Configure AWS CLI with AWS SSO (Single Sign-On) 
 
-### Prerequsities
+### Prerequisites
 Ensure SSO access to AWS.
 
 ### Initial profile setup

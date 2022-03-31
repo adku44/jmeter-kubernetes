@@ -2,9 +2,9 @@
 This manual covers information about necessary tools to setup basic kubernetes environment.
 Kubernetes environment is setup in AWS (Amazon Web Services) by EKSCTL tool.
 
-## install WSL:
+## install WSL
 Windows Subsystem for Linux
-Please follow the instructions for installation in microsoft manual
+Please follow detailed instructions for installation in microsoft manual
 ```
 https://docs.microsoft.com/en-us/windows/wsl/install
 ```

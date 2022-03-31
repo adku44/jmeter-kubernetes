@@ -17,10 +17,10 @@ aws configure sso
 ```
 Enter the following details accordingly:
 ```
-      sso_start_url = [ your sso login page]
+      sso_start_url = [ ... your sso login page] e.g. https://xx.aws.com/start ]
       sso_region = eu-west-2
-      sso_account_id = [ your account id form sso login page]
-      sso_role_name = [ your role ]
+      sso_account_id = [ ... your account id form sso login page e.g. 019396424224 ]
+      sso_role_name = [ ... your role e.g. AdministratorAccess ]
       region = eu-west-2
       output = json
 ```

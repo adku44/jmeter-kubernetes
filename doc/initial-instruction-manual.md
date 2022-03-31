@@ -8,7 +8,11 @@ Please follow the instructions for installation in microsoft manual
 ```
 https://docs.microsoft.com/en-us/windows/wsl/install
 ```
-e.g. Ubuntu 20.4 LTS
+e.g.
+```
+wsl --install -d Ubuntu-20.04
+```
+WSL ver.1 is suitable for wokshops purpose.
 
 ## Run WSL terminal
 In Windows
@@ -16,9 +20,11 @@ In Windows
 press Windows logo key + R
 type wsl
 ```
-When WSL terminal is opened type `cd`
-to change to home directory
-
+When WSL terminal is opened type `cd` to change to home directory
+All belowed tools must be installed in linux home directory:
+```
+cd
+```
 
 ## Install AWS CLI
 AWS-CLI installer for Linux x86
@@ -54,6 +60,18 @@ mkdir -p $HOME/bin && mv ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 aws-iam-authenticator version
 ```
 
+## Verification
+Each consecutive command shall give response with one line output
+```
+aws --version && eksctl version && kubectl version --short --client && aws-iam-authenticator version
+```
+
+## Clone repository
+```
+mkdir repo
+cd repo
+git clone https://github.com/adku44/jmeter-kubernetes.git
+```
 
 
 

@@ -5,13 +5,13 @@
 Ensure SSO access to AWS.
 
 #### Initial profile setup
-Setup default AWS profile. In wsl terminal set your user profile name by exporting `AWS_PROFILE` environmental variable. By default profile name consist of two elements: `accountID` and `RoleName` e.g "[721937219861_AdministratorAccess]" and can be found on SSO login page. The command should look like, e.g.:
+Setup default AWS profile. In wsl terminal set your user profile name by exporting `AWS_PROFILE` environmental variable. By default profile name consist of two elements: `accountID` and `RoleName` e.g "[7819370159861_AdministratorAccess]" and can be found on SSO login page. The command should look like, e.g.:
 ```
 export AWS_PROFILE=019396424224_AdministratorAccess
 ```
 
 #### Configure SSO
-Configure connection to aws (only do this point once when first time login).
+Configure connection to aws (only once when first time login).
 ```
 aws configure sso
 ```
@@ -25,7 +25,7 @@ aws configure sso
       output = json
 ```
 
-
+#### Copy token
 Set up valid token for connection to AWS and login:
 - Open AWS SSO page to login
 - Find credentials 
@@ -34,18 +34,19 @@ Set up valid token for connection to AWS and login:
 - Use 'Option 1' `Set AWS environment variables` from tab 'macOS and Linux'
 - Copy credentials to WSL terminal.
 
-  - Enter the following details accordingly:
+#### Login to AWS
+Login to your account
 ```
-      sso_start_url = [ your sso login page]
-      sso_region = eu-west-2
-      sso_account_id = [ your account id form sso login page]
-      sso_role_name = [ your role ]
-      region = eu-west-2
-      output = json
+aws sso login
 ```
-- Login to your account `aws sso login`
-- Check token expiration `aws sts get-caller-identity`
 
+#### Verify connection to AWS
+Check token expiration 
+```
+aws sts get-caller-identity
+```
+
+#### Token refresion
 Life time of token is quite short. When you get a message on your console: `error: You must be logged in to the server (Unauthorized)`
 it means that you token has expired.
 
@@ -54,6 +55,7 @@ If token has expired login again:
   - Find new credentials: `AWS account -> AWS account 'number' -> 'Command line or programmatic access'`
   - Copy new credentials to WSL terminal
   - Login again with new credentials `aws sso login`
+
 
 ## Configure AWS CLI with IAM user
 Configure access to aws from your PC

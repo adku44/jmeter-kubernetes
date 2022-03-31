@@ -14,8 +14,8 @@ Amazon Web Services (AWS) is used as a cloud infrastructure.
 
 2. [Setup access to AWS](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/aws-access-setup.md)
 
-3. Handling of Load Test service is covered by [Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/lt-instruction-manual.md).
+3. [Workshops plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md) covers basic information how to use kubernetes and adjust kubernetes environment for LTaaS.
 
-4. Troubleshooting [guide](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/hints.md)
+4. Handling of Load Test service is covered by [Instruction Manual](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/lt-instruction-manual.md).
 
-5. [Workshops plan](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/workshops.md) covers basic information how to use kubernetes and adjust kubernetes environment for LTaaS.
+5. Troubleshooting [guide](https://github.com/adku44/jmeter-kubernetes/blob/main/doc/hints.md)

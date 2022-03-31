@@ -1,21 +1,21 @@
 
 ## Configure AWS CLI with AWS SSO (Single Sign-On) 
 
-#### Prerequsities
+### Prerequsities
 Ensure SSO access to AWS.
 
-#### Initial profile setup
+### Initial profile setup
 Setup default AWS profile. In wsl terminal set your user profile name by exporting `AWS_PROFILE` environmental variable. By default profile name consist of two elements: `accountID` and `RoleName` e.g "[7819370159861_AdministratorAccess]" and can be found on SSO login page. The command should look like, e.g.:
 ```
 export AWS_PROFILE=019396424224_AdministratorAccess
 ```
 
-#### Configure SSO
+### Configure SSO
 Configure connection to aws (only once when first time login).
 ```
 aws configure sso
 ```
- - Enter the following details accordingly:
+Enter the following details accordingly:
 ```
       sso_start_url = [ your sso login page]
       sso_region = eu-west-2
@@ -25,7 +25,7 @@ aws configure sso
       output = json
 ```
 
-#### Copy token
+### Copy token
 Set up valid token for connection to AWS and login:
 - Open AWS SSO page to login
 - Find credentials 
@@ -34,19 +34,19 @@ Set up valid token for connection to AWS and login:
 - Use 'Option 1' `Set AWS environment variables` from tab 'macOS and Linux'
 - Copy credentials to WSL terminal.
 
-#### Login to AWS
+### Login to AWS
 Login to your account
 ```
 aws sso login
 ```
 
-#### Verify connection to AWS
+### Verify connection to AWS
 Check token expiration 
 ```
 aws sts get-caller-identity
 ```
 
-#### Token refresion
+### Token refresion
 Life time of token is quite short. When you get a message on your console: `error: You must be logged in to the server (Unauthorized)`
 it means that you token has expired.
 

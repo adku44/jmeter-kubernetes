@@ -129,6 +129,7 @@ Check the content of the file from configmap
 ```
 cat /load_test
 ```
+> *If token expires during connection session to POD then use command `fg 0`* 
 
 ### Running POD with idle container
 ```

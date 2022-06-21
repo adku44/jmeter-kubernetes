@@ -125,6 +125,11 @@ getent ahostsv4 grafana-svc | cut -d' ' -f1 | sort -u
 ```
 > *The commands resolve host names and give IP addresses associated with the services* 
 
+Check the content of the file from configmap
+```
+cat /load_test
+```
+
 ### Running POD with idle container
 ```
 kubectl get pods

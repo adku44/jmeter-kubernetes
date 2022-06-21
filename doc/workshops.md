@@ -44,6 +44,13 @@ kubectl get pods
 ```
 > *Notice that master POD is not running* 
 ### Configmaps
+Edit configmap
+```
+nano ./jmeter/jmeter_master_configmap.yaml
+```
+Add some comment in the file at line 12. Remember to start with `#` character.
+Save configmap.ymal file.
+
 Deploy configmap to have running master POD
 ```
 kubectl create -f ./jmeter/jmeter_master_configmap.yaml

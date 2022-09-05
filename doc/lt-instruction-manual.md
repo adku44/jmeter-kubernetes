@@ -30,7 +30,7 @@ Deploy dummy pod
 ./nginx_bumper_start.sh
 ```
 
-## Deploy Load Banacer
+## Deploy Load Balancer
 Exposure grafana service to external IP address
 ```
 kubectl get svc grafana-svc -n load-test
